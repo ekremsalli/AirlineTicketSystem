@@ -35,6 +35,10 @@ public class Ticket {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "flight_id")
 	private Flight flightTicket;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "airline_id")
+	private Airline airlineTicket;
 
 	
 	public Ticket() {
@@ -98,6 +102,14 @@ public class Ticket {
 
 	public void setFlightTicket(Flight flightTicket) {
 		this.flightTicket = flightTicket;
+	}
+
+	public Airline getAirlineTicket() {
+		return airlineTicket;
+	}
+
+	public void setAirlineTicket(Airline airlineTicket) {
+		this.airlineTicket = airlineTicket;
 	}
 
 

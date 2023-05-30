@@ -26,7 +26,6 @@ public class Airline {
 	@Column(name = "companyAddress")
 	private String companyAddress;
 	
-
 	
 	public Airline() {
 		super();

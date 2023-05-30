@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.AirlineTicket.entity.Airline;
+import com.example.AirlineTicket.model.airline.AirlineRequest;
+import com.example.AirlineTicket.model.airline.AirlineResponse;
 import com.example.AirlineTicket.service.AirlineService;
 
 @RestController
@@ -19,20 +21,20 @@ public class AirlineController {
 	
 
 	public AirlineController(AirlineService airlineService) {
-		super();
+
 		this.airlineService = airlineService;
 	}
 
 
 	@GetMapping("/getAll")
-	public List<Airline> getAll() {
+	public List<AirlineResponse> getAll() {
 		
 		return airlineService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public void add(@RequestBody() Airline airline){
-		this.airlineService.add(airline);
+	public void add(@RequestBody() AirlineRequest airlineRequest){
+		this.airlineService.add(airlineRequest);
 	}
 
 }

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.AirlineTicket.entity.Route;
+import com.example.AirlineTicket.model.route.RouteRequest;
+import com.example.AirlineTicket.model.route.RouteResponse;
 import com.example.AirlineTicket.service.RouteService;
 
 @RestController
@@ -17,17 +19,17 @@ public class RouteController {
 	private final RouteService routeService;
 
 	public RouteController(RouteService routeService) {
-		super();
+	
 		this.routeService = routeService;
 	}
 	
 	@GetMapping("/getAll")
-	public List<Route> getAll(){
+	public List<RouteResponse> getAll(){
 		return routeService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public void add(@RequestBody() Route route) {
-		this.routeService.add(route);
+	public void add(@RequestBody() RouteRequest routeRequest) {
+		this.routeService.add(routeRequest);
 	}
 }

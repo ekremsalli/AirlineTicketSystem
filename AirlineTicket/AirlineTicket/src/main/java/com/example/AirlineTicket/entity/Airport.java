@@ -29,12 +29,7 @@ public class Airport {
 	@Column(name = "city")
 	private String city;
 	
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "airportRouteTo")
-	private List<Route> routeTo;
-	
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "airportRouteFrom")
-	private List<Route> routeFrom;
-	
+
 	public Airport() {
 		super();
 	}

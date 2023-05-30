@@ -36,8 +36,7 @@ public class Flight {
 	@JoinColumn(name ="route_id")
 	private Route routeFlight;
 	
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "flightTicket")
-	private List<Ticket> flightTickets;
+
 	
 	public Flight() {
 		super();

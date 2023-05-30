@@ -32,12 +32,8 @@ public class Route {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "airport_route_from")
 	private Airport airportRouteFrom;
-	
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "routeFlight")
-	private List<Flight> routeFlights;
-	
 
-	
+
 	public Route() {
 		super();
 	}

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.AirlineTicket.entity.Airport;
+import com.example.AirlineTicket.model.airport.AirportRequest;
+import com.example.AirlineTicket.model.airport.AirportResponse;
 import com.example.AirlineTicket.service.AirportService;
 
 @RestController
@@ -17,17 +19,17 @@ public class AirportController {
 	private final AirportService airportService;
 
 	public AirportController(AirportService airportService) {
-		super();
+		
 		this.airportService = airportService;
 	}
 	
 	@GetMapping("/getAll")
-	public List<Airport> getAll(){
+	public List<AirportResponse> getAll(){
 		return airportService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public void add(@RequestBody() Airport airport) {
-		this.airportService.add(airport);
+	public void add(@RequestBody() AirportRequest airportRequest) {
+		this.airportService.add(airportRequest);
 	}
 }

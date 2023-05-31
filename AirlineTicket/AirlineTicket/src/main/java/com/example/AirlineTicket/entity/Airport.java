@@ -29,17 +29,24 @@ public class Airport {
 	@Column(name = "city")
 	private String city;
 	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "airportRouteFrom")
+	List<Route> routeFrom;
+	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "airportRouteTo")
+	List<Route> routeTo;
 
 	public Airport() {
 		super();
 	}
 
-	public Airport(long id, String name, String country, String city) {
+	public Airport(long id, String name, String country, String city, List<Route> routeFrom, List<Route> routeTo) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.country = country;
 		this.city = city;
+		this.routeFrom = routeFrom;
+		this.routeTo = routeTo;
 	}
 
 	public long getId() {
@@ -74,4 +81,21 @@ public class Airport {
 		this.city = city;
 	}
 
+	public List<Route> getRouteFrom() {
+		return routeFrom;
+	}
+
+	public void setRouteFrom(List<Route> routeFrom) {
+		this.routeFrom = routeFrom;
+	}
+
+	public List<Route> getRouteTo() {
+		return routeTo;
+	}
+
+	public void setRouteTo(List<Route> routeTo) {
+		this.routeTo = routeTo;
+	}
+
+	
 }

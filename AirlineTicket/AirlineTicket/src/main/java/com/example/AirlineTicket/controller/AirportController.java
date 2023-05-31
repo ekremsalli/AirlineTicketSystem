@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.AirlineTicket.entity.Airport;
 import com.example.AirlineTicket.model.airport.AirportRequest;
 import com.example.AirlineTicket.model.airport.AirportResponse;
 import com.example.AirlineTicket.service.AirportService;

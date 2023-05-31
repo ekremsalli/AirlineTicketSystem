@@ -36,61 +36,99 @@ public class Flight {
 	@JoinColumn(name ="route_id")
 	private Route routeFlight;
 	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy="flightTicket")
+	private List<Ticket> tickets;
+	
 
 	
 	public Flight() {
 		super();
 	}
 
-	public Flight(long id, boolean status, Date flightDate, int passangerCount, Route routeFlight) {
+
+
+	public Flight(long id, boolean status, Date flightDate, int passangerCount, Route routeFlight,
+			List<Ticket> tickets) {
 		super();
 		this.id = id;
 		this.status = status;
 		this.flightDate = flightDate;
 		this.passangerCount = passangerCount;
 		this.routeFlight = routeFlight;
-
+		this.tickets = tickets;
 	}
+
+
 
 	public long getId() {
 		return id;
 	}
 
+
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
+
 
 	public boolean isStatus() {
 		return status;
 	}
 
+
+
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+
+
 
 	public Date getFlightDate() {
 		return flightDate;
 	}
 
+
+
 	public void setFlightDate(Date flightDate) {
 		this.flightDate = flightDate;
 	}
+
+
 
 	public int getPassangerCount() {
 		return passangerCount;
 	}
 
+
+
 	public void setPassangerCount(int passangerCount) {
 		this.passangerCount = passangerCount;
 	}
+
+
 
 	public Route getRouteFlight() {
 		return routeFlight;
 	}
 
+
+
 	public void setRouteFlight(Route routeFlight) {
 		this.routeFlight = routeFlight;
 	}
 
-	
+
+
+	public List<Ticket> getTickets() {
+		return tickets;
+	}
+
+
+
+	public void setTickets(List<Ticket> tickets) {
+		this.tickets = tickets;
+	}
+
+
 }

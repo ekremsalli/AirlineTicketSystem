@@ -32,50 +32,75 @@ public class Route {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "airport_route_from")
 	private Airport airportRouteFrom;
+	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "routeFlight")
+	List<Flight> flights;
 
 
 	public Route() {
 		super();
 	}
 
-	public Route(long id, boolean status, Airport airportRouteTo, Airport airportRouteFrom) {
+
+	public Route(long id, boolean status, Airport airportRouteTo, Airport airportRouteFrom, List<Flight> flights) {
 		super();
 		this.id = id;
 		this.status = status;
 		this.airportRouteTo = airportRouteTo;
 		this.airportRouteFrom = airportRouteFrom;
+		this.flights = flights;
 	}
+
 
 	public long getId() {
 		return id;
 	}
 
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 
 	public boolean isStatus() {
 		return status;
 	}
 
+
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+
 
 	public Airport getAirportRouteTo() {
 		return airportRouteTo;
 	}
 
+
 	public void setAirportRouteTo(Airport airportRouteTo) {
 		this.airportRouteTo = airportRouteTo;
 	}
+
 
 	public Airport getAirportRouteFrom() {
 		return airportRouteFrom;
 	}
 
+
 	public void setAirportRouteFrom(Airport airportRouteFrom) {
 		this.airportRouteFrom = airportRouteFrom;
 	}
+
+
+	public List<Flight> getFlights() {
+		return flights;
+	}
+
+
+	public void setFlights(List<Flight> flights) {
+		this.flights = flights;
+	}
+
+	
 
 }
